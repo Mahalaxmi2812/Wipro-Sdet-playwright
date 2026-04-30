@@ -24,6 +24,7 @@ console.log("Greater than or equal to:", a >= b) //greater than or equal to
 console.log("Less than or equal to:", a <= b) //less than or equal to
 console.log("Equal to:", a === b) //equal to
 console.log("Not equal to:", a !== b) //not equal to
+<<<<<<< HEAD:index.js
 
 
 let obj = {
@@ -109,3 +110,5 @@ switch(choice) {
     default:
         console.log("Invalid choice");
 }
+=======
+>>>>>>> eaca933c7198149f08e508509e8474821741186c:Day1/index.js
