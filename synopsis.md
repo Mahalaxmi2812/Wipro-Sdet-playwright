@@ -58,3 +58,27 @@ A quick reference guide for the functions and methods used in this project.
   - `Math.floor(5.9); // 5`
 - **parseInt / parseFloat**: Converts a string to an integer or decimal.
   - `parseInt("5"); / parseFloat("0.6");`
+
+## 6. Advanced Array Methods (Reduce)
+- **reduce (Summing)**: Reduces an array to a single value by adding each element to an accumulator.
+  - `const total = prices.reduce((acc, curr) => acc + curr, 0);`
+- **reduce (Tallying/Counting)**: Uses an object as an accumulator to count how many times an item appears.
+   const tally = items.reduce((acc, item) => {
+        acc[item] = (acc[item] || 0) + 1; // "If exists, +1. If not, start at 0 and +1"
+        return acc;
+   }, {});
+- **Initial Value**: The second argument in `reduce` (like `0` or `{}`) defines the starting type of the result.
+  - `arr.reduce((acc, curr) => {...}, {}); // Starts with empty object`
+  - Use reduce to compare items and keep only the "winner."
+  - `const max = [10, 50, 30].reduce((acc, curr) => (curr > acc ? curr : acc), 0)`;
+
+## 7. Functional Concepts
+- **Callbacks**: Passing a function as an argument to another function.
+  - `arr.map(x => x * 2); // The arrow function is the callback`
+- **Accumulator (`acc`)**: The "running total" or stored result that persists across each loop in a reduce function.
+- **Dynamic Keys**: Accessing or creating object properties using square brackets and variables.
+  - `obj[variableKey] = value;`
+
+## 8. Logic & Short-circuiting
+- **Logical OR (`||`) for Defaults**: Sets a default value if the first part is `undefined` or `null`.
+  - `let count = acc[item] || 0; // If item doesn't exist, start at 0`
