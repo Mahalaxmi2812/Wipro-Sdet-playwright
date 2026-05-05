@@ -20,6 +20,13 @@
 //     console.log("Interval running"); //runs every 3 seconds
 // }, 3000);
 
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//     .then(res => res.json()) // res -> string -> json)
+//     .then(data => data.filter(d => d.id % 2 === 0))
+//     .then(data => data.map(d => (d.title = "Siva " + d.title)))
+//     .then(data => console.log(data))
+//     .catch(error => console.error("Error fetching data:", error));
+
 function getData() {
     return new Promise((resolve, reject) => {
         if(2 > 3) {
