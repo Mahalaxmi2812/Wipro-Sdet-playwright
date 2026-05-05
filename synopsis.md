@@ -82,3 +82,25 @@ A quick reference guide for the functions and methods used in this project.
 ## 8. Logic & Short-circuiting
 - **Logical OR (`||`) for Defaults**: Sets a default value if the first part is `undefined` or `null`.
   - `let count = acc[item] || 0; // If item doesn't exist, start at 0`
+
+
+9. Asynchronous JavaScript & Timers
+Promises: Objects representing the eventual completion (resolve) or failure (reject) of an asynchronous task.
+code:
+JavaScript
+function getData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Data received"), 2000);
+    });
+}
+.then() / .catch(): Methods used to handle the result or errors of a Promise once it settles.
+code
+JavaScript
+getData()
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+setTimeout: Executes a function once after a specified delay in milliseconds.
+setTimeout(() => console.log("Done"), 3000); // Runs after 3s
+setInterval: Repeatedly executes a function at every fixed time interval.
+setInterval(() => console.log("Repeating"), 3000); // Runs every 3s
+   
