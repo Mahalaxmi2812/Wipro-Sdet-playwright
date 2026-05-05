@@ -12,13 +12,27 @@
 //     console.error("Error:", error); //If reject is called, this will run
 // });
 
-// // setTimeout(() => {
-// //     console.log("Timeout completed"); //runs after 3 seconds
-// // }, 3000); 
+// setTimeout(() => {
+//     console.log("Timeout completed"); //runs after 3 seconds
+// }, 3000); 
 
-// // setInterval(() => {
-// //     console.log("Interval running"); //runs every 3 seconds
-// // }, 3000);
+// setInterval(() => {
+//     console.log("Interval running"); //runs every 3 seconds
+// }, 3000);
+
+function getData() {
+    return new Promise((resolve, reject) => {
+        if(2 > 3) {
+ 
+            setTimeout(() => {
+                resolve("Data received");
+            }, 2000);
+        } else {
+            reject('not working')
+        }
+    });
+}
+ 
 
 fetch('https://jsonplaceholder.typicode.com/todos')
 .then(res => res.json())
