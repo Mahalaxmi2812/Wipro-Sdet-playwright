@@ -1,6 +1,5 @@
 # JavaScript Technical Synopsis: Async, Data, and OOP
 
-This document summarizes the core JavaScript concepts demonstrated in the provided code, covering asynchronous operations, data manipulation, timers, and Object-Oriented Programming (OOP).
 
 ## 1. Asynchronous Programming & API Interaction
 
