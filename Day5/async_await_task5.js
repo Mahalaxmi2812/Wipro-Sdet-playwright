@@ -4,7 +4,7 @@ async function getRickAndMortyCharacters() {
   try {
     const res = await fetch("https://rickandmortyapi.com/api/character");
     const data = await res.json();
-    const aliveHumans = data.results
+    const aliveHumans = data.results // Access the 'results' array from the API response
       .filter(c => c.status === "Alive" && c.species === "Human")
       .map(c => c.name);
     console.log("Alive Humans:", aliveHumans);
