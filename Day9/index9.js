@@ -34,3 +34,5 @@ console.log(one, two, three)
 
 const { name, age } = {name: "aryan", age: 25}; // key-based extracted
 console.log(name, age);
+
+console.log(5=='5')
