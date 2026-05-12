@@ -99,3 +99,17 @@ names.addItems("Arush");
 names.addItems("Rohan");
 
 console.log(names.getItem(0), names.getItem(1), names.getItem(2), names.getItem(3)); //undefined fpr index 3
+
+
+interface HasLength{
+    length: number;
+}
+
+//generics with constraints | extends keyword
+function logLength<T extends HasLength>(arg: T): void{  //T -> property, length ->string, arrrays
+    console.log(arg.length);
+}
+
+logLength("Maha"); //string --> length
+logLength([1, 2, 3]); //array --> length
+//logLength(10); //number --> x
