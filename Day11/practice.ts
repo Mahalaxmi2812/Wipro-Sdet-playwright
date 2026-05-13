@@ -233,36 +233,32 @@ console.log(result1, result2);
 // Scenario: You want to wrap any asynchronous function with a standard error logger.
 // Task: Write a generic function safeExecute<T> that takes an async function as an argument. It should return a new function that, when called, executes the original function inside a try/catch block and returns null if it fails.
 
-// T = The return type of the Promise
-// Args = An array type representing the function's parameters
-function safeExecute<T, Args extends any[]>(
-    fn: (...args: Args) => Promise<T>
-) {
-    // Return a new async function with the exact same arguments
+function safeExecute<Args extends any[], T>(asyncFnc: (...args: Args) => Promise<T>) {
     return async (...args: Args): Promise<T | null> => {
         try {
-            // Execute original function
-            return await fn(...args);
-        } catch (error) {
-            // Standard error logger
-            console.error("SafeExecute caught an error:", error);
+            return await asyncFnc(...args);
+        } catch (err) {
+            console.error(err);
             return null;
         }
-    };
+    }
 }
 
-// --- Usage Example ---
-async function fetchUser(id: number): Promise<{ name: string }> {
-    if (id === 0) throw new Error("User not found");
-    return { name: "Alice" };
+const info = async (id: number): Promise<string> => {
+    if(id === -1) throw new Error("Invalid ID");
+    return `Data for ID: ${id}`
 }
 
-// Wrap the function
-const safeFetchUser = safeExecute(fetchUser);
 
-// TypeScript knows 'id' must be a number, and the result is { name: string } | null
-const result3 = safeFetchUser(1);
-console.log(result3); // Logs: { name: "Alice" }
+async function dryRun() {
+    const getData = safeExecute(info);
+    const res = await getData(10);
+    const res1 = await getData(0);
+    const res2 = await getData(-1);
+    console.log(res, res1, res2);
+}
+
+dryRun();
 
 // 9. Index Signatures for Dynamic Metadata
 // Scenario: You are receiving a "Metadata" object from a server where the keys are dynamic strings, but the values must be either a string, number, or boolean.
