@@ -11,4 +11,4 @@ async function testLoginForm(page, user, pass) {
   return await msg.textContent();
 }
 
-export default testLoginForm;
+export default testLoginForm; //export the function to be used in other test files
