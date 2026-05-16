@@ -33,8 +33,8 @@ loginData.forEach(async data => {
     await password.fill(data.password);
     await btn.click();
 
-    await btn.screenshot({ type: 'png', path: 'btn.png'  });
-    await page.screenshot({ fullPage: true, path: 'full-page.png' })
+    // await btn.screenshot({ type: 'png', path: 'btn.png'  });
+    // await page.screenshot({ fullPage: true, path: 'full-page.png' })
     
     await expect(msg).toHaveText(data.expected);   //Playwright's await expect(msg).toHaveText(data.expected); line compares the actual message on the screen with what you told it to expect. If you provide an expected string that doesn't exactly match what the backend actually sends back, Playwright will flag it as a Failed Test.
 
