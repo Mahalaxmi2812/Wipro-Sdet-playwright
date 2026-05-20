@@ -7,7 +7,7 @@ test.describe('testing index.html', async () => {
   // });
 
   test.beforeEach(async ({ page }) =>
-    await page.goto('http://localhost:5500/Day13/webapp/public/index.html')
+    await page.goto('http://localhost:3000/index.html')
   );
 
   test('handle alert', async ({ page }) => {
@@ -20,6 +20,8 @@ test.describe('testing index.html', async () => {
       dialog.accept(); // ok
     })
   });
+
+
 
   test('check home title', async ({ page }) => {
     const heading = page.getByRole('heading', { name: 'Home' });
