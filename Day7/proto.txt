@@ -1,0 +1,43 @@
+In JavaScript, a prototype is an internal object from which other objects inherit properties and methods.
+It is the mechanism that allows objects to share functionality without duplicating code in memory for every single instance.
+
+The "Blueprint" vs. The "Link"There are two confusingly similar terms to distinguish:
+
+prototype property: This only exists on constructor functions (like person in your example). 
+It is the "blueprint" that will be assigned to any object created using new.
+
+[[Prototype]] (Internal Link): This is the actual link inside an instance (like me) that points back to the constructor's 
+prototype. You access it via Object.getPrototypeOf(me)
+
+
+Why use prototypes?
+*   *Memory Efficiency: Instead of having 1,000 copies of makeCall for 1,000 phones, you have **one* copy stored on the prototype that all phones reference.
+*   *Live Updates: If you add a new method to Smartphone.prototype later, even phones created *before the update will suddenly have access to it.
+*   *Inheritance*: It allows you to create specialized "child" objects (e.g., a GamingPhone) that inherit everything from Smartphone but add their own unique features.
+
+
+3. Memory Efficiency:
+
+Prototypes are a massive memory saver. Here's why:
+
+• Instance Methods (Wasteful): If you define a function inside the constructor
+( this. sayHi = function...
+), and you create 1,000,000 objects, JavaScript
+creates 1,000,000 distinct copies of that function in memory.
+
+
+
+• Prototype Methods (Efficient): If you define it on the prototype, those same
+1,000,000 objects all point to one single function in memory.
+
+Methods on Constructor:
+( this-fn )
+High (New copy per object)
+Slightly faster acces
+Cannot update all at once
+
+Methods on Prototype:
+( Class .prototype.fn )
+Low (One copy shared by all)
+Slightly slower (has to look up the chain)
+Updates reflect on all objects instantly
