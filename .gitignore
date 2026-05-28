@@ -1,0 +1,15 @@
+git-sync.sh
+api.js
+practice_api.js
+eg.js
+.gitignore
+
+node_modules
+package-lock.json
+package.json
+practice7.js
+practice8.js
+
+!Day21/package.json
+!Day21/package-lock.json
+
